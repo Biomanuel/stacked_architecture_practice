@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_architecture_practice/config/app_setup.locator.dart';
+import 'package:stacked_architecture_practice/config/app_setup.router.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2)).then((value) {
-      // TODO: Navigate with Navigation Service here
+      locator<NavigationService>().replaceWith(Routes.dashboardScreen);
     });
   }
 

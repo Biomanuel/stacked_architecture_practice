@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_architecture_practice/core/enums/gendar.dart';
+import 'package:stacked_architecture_practice/core/models/user.dart';
+import 'package:stacked_architecture_practice/util/helper.dart';
 
 class UserDetailsScreen extends StatelessWidget {
-  const UserDetailsScreen({Key? key}) : super(key: key);
+  final User user;
+
+  const UserDetailsScreen({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +29,7 @@ class UserDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
                   radius: 30,
+                  backgroundColor: getColorFromFlag(user.imageFlag),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Icon(
@@ -46,7 +52,7 @@ class UserDetailsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 3,
-                  child: Text("Ade"),
+                  child: Text("${user.firstName}"),
                 ),
               ],
             ),
@@ -61,7 +67,7 @@ class UserDetailsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 3,
-                  child: Text("Olusola"),
+                  child: Text("${user.lastName}"),
                 ),
               ],
             ),
@@ -77,7 +83,7 @@ class UserDetailsScreen extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    "Male",
+                    "${user.gender.string()}",
                   ),
                 ),
               ],

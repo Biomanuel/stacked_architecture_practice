@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_architecture_practice/config/app_setup.locator.dart';
+import 'package:stacked_architecture_practice/config/app_setup.router.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 void main() {
-  // TODO: setupLocator here
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -15,9 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // TODO: Set Navigator Key here
-      // TODO: Set onGenerateRoute here
-      // TODO: Set initialRoute here
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: (settings) => StackedRouter().onGenerateRoute(settings),
+      initialRoute: Routes.splashScreen,
     );
   }
 }
